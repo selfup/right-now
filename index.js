@@ -22,7 +22,6 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   socket.on('message', (channel, message) => {
     io.sockets.emit('chat message', message)
-    // console.log(`${channel}: "${message.text}" from ${message.username}`)
   })
 })
 
