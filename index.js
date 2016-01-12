@@ -11,8 +11,10 @@ app.get('/', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-  console.log('Someone has connected')
-  socket.emit('message', 'Hello from Node!!!')
+  socket.on('message', (channel, message) => {
+    socket.emit('chat message', message)
+    // console.log(`${channel}: "${message.text}" from ${message.username}`)
+  })
 })
 
 http.listen(process.env.PORT || 3000, () => {
