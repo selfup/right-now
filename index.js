@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   socket.on('message', (channel, message) => {
-    socket.emit('chat message', message)
+    io.sockets.emit('chat message', message)
     // console.log(`${channel}: "${message.text}" from ${message.username}`)
   })
 })
