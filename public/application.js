@@ -5,10 +5,12 @@ socket.on('connect', () => {
 })
 
 socket.on('chat message', (message) => {
-  $('.messages').append(`<div>
-    <h3>${message.username}</h3>
-    <p>${message.text}</p>
-    </div>`)
+  $('.messages').append(
+    `<div>
+      <h3>${message.username}</h3>
+      <p>${message.text}</p>
+    </div>`
+  )
 })
 
 $('.submit-message').on('click', (e) => {
